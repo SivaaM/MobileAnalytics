@@ -42,4 +42,49 @@ extension String {
 
         return ceil(boundingBox.width)
     }
+    
+    func estimateFrameForText() -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: self).boundingRect(with: size, options: options, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "TrebuchetMS", size: 20)!]), context: nil)
+    }
+    
+    // Helper function inserted by Swift 4.2 migrator.
+    private func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+        guard let input = input else { return nil }
+        return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+    }
+
+    // Helper function inserted by Swift 4.2 migrator.
+    private func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+        return input.rawValue
+    }
 }
+
+
+extension UIColor {
+    static let appDarkBlue = UIColor(red: 18/255.0, green: 56/255.0, blue: 92/255.0, alpha: 1.0)
+    static let appLightBlue = UIColor(red: 16/255.0, green: 153/255.0, blue: 189/255.0, alpha: 1.0)
+}
+
+extension UITableView {
+
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+        messageLabel.sizeToFit()
+
+        self.backgroundView = messageLabel
+        self.separatorStyle = .none
+    }
+
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .none
+    }
+}
+

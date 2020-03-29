@@ -128,7 +128,10 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate {
                 }
             } else {
                 startRecording()
-                microphoneButton.setImage(#imageLiteral(resourceName: "micRecording"), for: .normal)
+                let image = #imageLiteral(resourceName: "micRecording").withRenderingMode(.alwaysTemplate)
+                microphoneButton.tintColor = .appDarkBlue
+                microphoneButton.setImage(image, for: .normal)
+
             }
         }
      

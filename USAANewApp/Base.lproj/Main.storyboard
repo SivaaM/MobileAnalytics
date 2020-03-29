@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-0w-CY2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="441"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="431"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fET-ka-gGh">
@@ -55,24 +55,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IiV-YB-sZC" id="dt7-Vv-w4b">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqE-Qn-KT1">
-                                            <rect key="frame" x="15" y="0.0" width="349" height="114"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="QqE-Qn-KT1" secondAttribute="bottom" constant="6" id="IIC-0c-GgL"/>
-                                        <constraint firstAttribute="trailing" secondItem="QqE-Qn-KT1" secondAttribute="trailing" constant="50" id="Q9A-E6-kjU"/>
-                                        <constraint firstItem="QqE-Qn-KT1" firstAttribute="top" secondItem="dt7-Vv-w4b" secondAttribute="top" id="VaL-Cj-sww"/>
-                                        <constraint firstItem="QqE-Qn-KT1" firstAttribute="leading" secondItem="dt7-Vv-w4b" secondAttribute="leading" constant="15" id="id9-JU-bGk"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="question" destination="QqE-Qn-KT1" id="hOS-0V-y2G"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

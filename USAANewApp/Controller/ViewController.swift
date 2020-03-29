@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.barTintColor = .appDarkBlue
+        
         addChatVC()
         addSpeechVC()
     }
