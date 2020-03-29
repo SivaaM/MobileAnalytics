@@ -27,14 +27,15 @@ class ChatFlowVC: UITableViewController {
     func injectChat(_ detail: Detail?) {
         if let detail = detail {
             chatVM.injectChat(detail)
-            self.tableView.reloadData()
-            if currentData.count > 1 {
-                self.tableView.scrollToRow(at: IndexPath(row: currentData.count - 1, section: 0), at: .bottom, animated: true)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                if self.currentData.count > 1 {
+                    self.tableView.scrollToRow(at: IndexPath(row: self.currentData.count - 1, section: 0), at: .bottom, animated: true)
 
-            }
+                }
+           }
         }
     }
-    
 }
 
 extension ChatFlowVC {
