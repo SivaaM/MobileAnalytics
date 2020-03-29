@@ -72,6 +72,12 @@ class ViewController: UIViewController {
     fileprivate func navigateToDetail() {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
         navigationController?.pushViewController(vc, animated: true)
+        vc.title = "Ask Thi"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 }
 

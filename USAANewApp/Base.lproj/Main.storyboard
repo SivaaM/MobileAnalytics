@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Ask Thi-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="USAANewApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Y7k-yV-eyB"/>
+                    <navigationItem key="navigationItem" title="Ask Thi" id="Y7k-yV-eyB"/>
                     <connections>
                         <outlet property="containerChatFlow" destination="bXn-0w-CY2" id="Agg-8v-X5D"/>
                         <outlet property="containerSpeech" destination="fET-ka-gGh" id="P1T-fs-0Mk"/>
