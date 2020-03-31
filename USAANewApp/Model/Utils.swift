@@ -23,9 +23,14 @@ protocol SpeechDataDelegate: class {
     func voiceInput(_ string: String?)
 }
 
+protocol ChatFlowDelegate: class {
+    func showReport(for param: String?)
+}
+
 struct Detail {
     let question: String
     let isMemebr: Bool
+    var isFinalResponse: Bool = true
 }
 
 extension String {

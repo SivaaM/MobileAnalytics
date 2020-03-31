@@ -16,4 +16,9 @@ struct ChatViewModel {
             currentData.append(detail)
         }
     }
+    
+    func fetchParam(for rawString: String, completion: @escaping (String) -> ()) {
+        completion("sampleParam")
+    }
+    
 }
