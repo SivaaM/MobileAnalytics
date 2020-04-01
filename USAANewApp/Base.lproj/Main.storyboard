@@ -76,14 +76,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="year-chart" translatesAutoresizingMaskIntoConstraints="NO" id="VKq-nh-TPr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="year-chart" translatesAutoresizingMaskIntoConstraints="NO" id="VKq-nh-TPr">
                                 <rect key="frame" x="20" y="59" width="374" height="793"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VKq-nh-TPr" firstAttribute="top" secondItem="yZb-9Q-Ldc" secondAttribute="top" constant="15" id="I5c-Ax-Ij5"/>
+                            <constraint firstItem="VKq-nh-TPr" firstAttribute="leading" secondItem="yZb-9Q-Ldc" secondAttribute="leading" constant="20" id="XYC-87-2S1"/>
+                            <constraint firstItem="yZb-9Q-Ldc" firstAttribute="trailing" secondItem="VKq-nh-TPr" secondAttribute="trailing" constant="20" id="oQg-p0-lS3"/>
+                            <constraint firstItem="yZb-9Q-Ldc" firstAttribute="bottom" secondItem="VKq-nh-TPr" secondAttribute="bottom" constant="10" id="oaX-0l-cDV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yZb-9Q-Ldc"/>
                     </view>
+                    <connections>
+                        <outlet property="iv" destination="VKq-nh-TPr" id="4yv-XH-eVp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0x-rz-ioK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,7 +18,12 @@ struct ChatViewModel {
     }
     
     func fetchParam(for rawString: String, completion: @escaping (String) -> ()) {
-        completion("sampleParam")
+        //TODO - response handle 
+        if rawString.contains("November") || rawString.contains("november") {
+            completion("nov-chart")
+        } else {
+            completion("year-chart")
+        }
     }
     
 }

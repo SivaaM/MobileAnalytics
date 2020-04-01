@@ -15,9 +15,11 @@ struct ContainerViewMidel {
     func fetchInfoforQuestion(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let confirm = self.confirmationTexts.contains(where: question.contains)
-            if question.contains("members") {
-                completion(.respose("Do you want info about members?"))
-            }
+//            if question.contains("November") {
+//                completion(.respose("Do you want info about members during last November?"))
+//            } else  if question.contains("november") || question.contains("November") {
+//                completion(.respose("Do you want info about members?"))
+//            }
 //             else if confirm {
 //                completion(.confirm)
 //            }

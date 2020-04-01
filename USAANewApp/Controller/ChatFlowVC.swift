@@ -45,14 +45,15 @@ class ChatFlowVC: UITableViewController, ChatFlowDelegate {
         }
         chatVM.fetchParam(for: rawString) { [weak self] (param) in
             print(param)
-            self?.navigateToDetail()
+            self?.navigateToDetail(param)
         }
     }
     
-    fileprivate func navigateToDetail() {
+    fileprivate func navigateToDetail(_ string: String) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
-        navigationController?.pushViewController(vc, animated: true)
         vc.title = "Ask Thi"
+        vc.imageString = string
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -125,8 +126,12 @@ class ChatCell: UITableViewCell {
             bubbleHeightAnchor?.constant = chatHeight
             bubbleWidthAnchor?.constant = detail.question.estimateFrameForText().width + 40
             infoHeightAnchor?.constant = textHeight
-            if !detail.isMemebr && detail.isFinalResponse {
+            if !isMember && detail.isFinalResponse {
                 performAddingReportAction()
+            } else {
+                if self.subviews.contains(goToReport) {
+                    goToReport.removeFromSuperview()
+                }
             }
         }
     }
