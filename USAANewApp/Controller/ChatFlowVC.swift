@@ -21,6 +21,8 @@ class ChatFlowVC: UITableViewController, ChatFlowDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = .appLightGray
+        tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
 
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
@@ -182,7 +184,8 @@ class ChatCell: UITableViewCell {
         
     
     override func awakeFromNib() {
-                
+        backgroundColor = .appLightGray
+
         addSubview(bubbleView)
         addSubview(question)
         //x,y,w,h

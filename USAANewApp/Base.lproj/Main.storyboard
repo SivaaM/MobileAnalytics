@@ -16,18 +16,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-0w-CY2">
-                                <rect key="frame" x="0.0" y="98" width="414" height="431"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="706"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fET-ka-gGh">
-                                <rect key="frame" x="0.0" y="527" width="414" height="335"/>
+                                <rect key="frame" x="0.0" y="802" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="q9H-0e-iJQ" kind="embed" id="Ito-OA-9MK"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ask Thi" id="Y7k-yV-eyB"/>
@@ -102,37 +102,41 @@
             <objects>
                 <viewController storyboardIdentifier="SpeechVC" id="q9H-0e-iJQ" customClass="SpeechVC" customModule="USAANewApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iLX-rn-KpY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2x-w7-DWb">
-                                <rect key="frame" x="162" y="220" width="90" height="84"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" text="Enter your text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joM-H3-mIH">
+                                <rect key="frame" x="3" y="10" width="407" height="74"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="ULn-g9-lsG"/>
-                                    <constraint firstAttribute="width" constant="90" id="iHP-O3-o3V"/>
+                                    <constraint firstAttribute="height" constant="74" id="pOm-Mz-W2L"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="q9H-0e-iJQ" id="U9A-T4-ph0"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2x-w7-DWb">
+                                <rect key="frame" x="344" y="19" width="59" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="XHT-CI-hY8"/>
+                                    <constraint firstAttribute="width" constant="59" id="mbC-U4-abn"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="mic"/>
                                 <connections>
                                     <action selector="microphoneTapped:" destination="q9H-0e-iJQ" eventType="touchUpInside" id="SwK-nr-jpD"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joM-H3-mIH">
-                                <rect key="frame" x="20" y="18" width="374" height="194"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="joM-H3-mIH" firstAttribute="leading" secondItem="WTF-ds-x1I" secondAttribute="leading" constant="20" id="3do-gW-q4Y"/>
-                            <constraint firstItem="WTF-ds-x1I" firstAttribute="bottom" secondItem="e2x-w7-DWb" secondAttribute="bottom" constant="31" id="3yG-iM-vJA"/>
-                            <constraint firstItem="joM-H3-mIH" firstAttribute="centerX" secondItem="iLX-rn-KpY" secondAttribute="centerX" id="LBA-Cm-3lN"/>
-                            <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="joM-H3-mIH" secondAttribute="trailing" constant="20" id="O1G-MG-ctP"/>
-                            <constraint firstItem="e2x-w7-DWb" firstAttribute="top" secondItem="joM-H3-mIH" secondAttribute="bottom" constant="8" id="ZPU-Oi-O8D"/>
-                            <constraint firstItem="e2x-w7-DWb" firstAttribute="centerX" secondItem="iLX-rn-KpY" secondAttribute="centerX" id="edY-nM-2G3"/>
-                            <constraint firstItem="joM-H3-mIH" firstAttribute="top" secondItem="iLX-rn-KpY" secondAttribute="top" constant="18" id="qns-zn-1OV"/>
+                            <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="joM-H3-mIH" secondAttribute="trailing" constant="4" id="1Gk-CN-NU9"/>
+                            <constraint firstItem="e2x-w7-DWb" firstAttribute="top" secondItem="iLX-rn-KpY" secondAttribute="top" constant="19" id="CXc-DE-O7J"/>
+                            <constraint firstItem="joM-H3-mIH" firstAttribute="leading" secondItem="WTF-ds-x1I" secondAttribute="leading" constant="3" id="IBv-ia-aKs"/>
+                            <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="e2x-w7-DWb" secondAttribute="trailing" constant="11" id="qMk-ga-D3S"/>
+                            <constraint firstItem="joM-H3-mIH" firstAttribute="top" secondItem="iLX-rn-KpY" secondAttribute="top" constant="10" id="uCu-Lv-aLS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WTF-ds-x1I"/>
                     </view>
@@ -145,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJa-lc-riJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="341"/>
+            <point key="canvasLocation" x="1657.9710144927537" y="340.51339285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b5A-Qw-qBN">

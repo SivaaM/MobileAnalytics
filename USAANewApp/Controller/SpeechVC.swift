@@ -9,7 +9,7 @@
 import UIKit
 import Speech
 
-class SpeechVC: UIViewController, SFSpeechRecognizerDelegate {
+class SpeechVC: UIViewController, SFSpeechRecognizerDelegate, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
@@ -21,6 +21,7 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeKeyboardNotifications()
         microphoneButton.isEnabled = false
         
         speechRecognizer?.delegate = self
@@ -142,4 +143,36 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate {
                 microphoneButton.isEnabled = false
             }
         }
+    
+    private func observeKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardHide() {
+
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight)
+            self.microphoneButton.isHidden = false
+
+        }, completion: nil)
+    }
+
+    @objc func keyboardShow() {
+        microphoneButton.isHidden = true
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.frame = CGRect(x: 0, y: -350, width: self.screenWidth, height: self.screenHeight)
+        }, completion: nil)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            self.speechDataDelegate?.voiceInput(textView.text)
+            self.textView.text = ""
+            return false
+        }
+        return true
+    }
+    
 }

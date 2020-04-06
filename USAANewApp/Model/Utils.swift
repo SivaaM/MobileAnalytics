@@ -70,6 +70,8 @@ extension String {
 extension UIColor {
     static let appDarkBlue = UIColor(red: 18/255.0, green: 56/255.0, blue: 92/255.0, alpha: 1.0)
     static let appLightBlue = UIColor(red: 16/255.0, green: 153/255.0, blue: 189/255.0, alpha: 1.0)
+    static let appLightGray = UIColor(red: 233/255.0, green: 233/255.0, blue: 225/255.0, alpha: 1.0)
+
 }
 
 extension UITableView {
@@ -93,3 +95,12 @@ extension UITableView {
     }
 }
 
+
+extension UIViewController {
+    var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+}
