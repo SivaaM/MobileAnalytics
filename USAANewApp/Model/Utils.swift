@@ -15,7 +15,7 @@ enum Child {
 }
 
 enum VoiceResponse {
-    case respose(String)
+    case respose(String, String?)
     case confirm
 }
 
@@ -30,7 +30,9 @@ protocol ChatFlowDelegate: class {
 struct Detail {
     let question: String
     let isMemebr: Bool
-    var isFinalResponse: Bool = true
+    var isFinalResponse: Bool = false
+    var hasChartResponse: Bool = true
+    var chartImage: String?
 }
 
 extension String {

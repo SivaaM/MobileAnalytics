@@ -15,11 +15,14 @@ struct ContainerViewMidel {
     func fetchInfoforQuestion(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let confirm = self.confirmationTexts.contains(where: question.contains)
-//            if question.contains("November") {
-//                completion(.respose("Do you want info about members during last November?"))
-//            } else  if question.contains("november") || question.contains("November") {
-//                completion(.respose("Do you want info about members?"))
-//            }
+        if question.contains("November") || question.contains("november") {
+                completion(.respose("You asked about new members for a specific date (2019-11-01/2019-11-30)", "nov-chart"))
+            } else  if question.contains("last year") {
+                completion(.respose("You asked about new members for a specific date (2019-01-01/2019-12-31)", "year-chart"))
+        } else if question.contains("state") {
+            completion(.respose("You asked about active members by state", "year-chart"))
+
+        }
 //             else if confirm {
 //                completion(.confirm)
 //            }
@@ -63,7 +66,7 @@ struct ContainerViewMidel {
                     if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] {
                         print(json)
                         if let result = json["queryResult"]?["fulfillmentText"] as? String {
-                            completion(.respose(result))
+                            completion(.respose(result, ""))
                         }
                     }
                 }catch let error {

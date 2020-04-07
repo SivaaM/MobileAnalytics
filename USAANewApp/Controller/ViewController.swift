@@ -98,8 +98,8 @@ extension ViewController: SpeechDataDelegate {
 
             containerVM.fetchInfoforQuestion(question) { (response) in
                 switch response {
-                case .respose(let info):
-                    let detail = Detail(question: info, isMemebr: false)
+                case .respose(let info, let image):
+                    let detail = Detail(question: info, isMemebr: false, chartImage: image)
                     childVC.injectChat(detail)
                 case .confirm:
                     self.navigateToDetail()

@@ -86,10 +86,16 @@ extension ChatFlowVC {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let info = currentData[indexPath.row]
-        let defHeight = info.question.estimateFrameForText().height
-        //return  defHeight + 30.0
-
-        return !info.isMemebr && info.isFinalResponse ? defHeight + 90.0 : defHeight + 50.0
+        var defHeight = info.question.estimateFrameForText().height + 50
+        
+        if !info.isMemebr && info.isFinalResponse {
+            defHeight += 30.0
+        }
+        
+        if !info.isMemebr && info.hasChartResponse {
+            defHeight += 350.0
+        }
+        return defHeight
     }
 
 }
@@ -135,6 +141,16 @@ class ChatCell: UITableViewCell {
                     goToReport.removeFromSuperview()
                 }
             }
+            
+            if !isMember && detail.hasChartResponse {
+                if let imageString = detail.chartImage {
+                    performAddingChart(UIImage(imageLiteralResourceName: imageString))
+                }
+            } else {
+                if self.subviews.contains(chart) {
+                    chart.removeFromSuperview()
+                }
+            }
         }
     }
     
@@ -148,6 +164,19 @@ class ChatCell: UITableViewCell {
             tv.isUserInteractionEnabled = false
             return tv
         }()
+    
+    public lazy var chart: UIImageView = {
+        let iconImage = UIImage(imageLiteralResourceName: "nov-chart")
+        let iconView = UIImageView(image: iconImage)
+        iconView.contentMode = .scaleToFill
+        iconView.clipsToBounds = true
+        iconView.isUserInteractionEnabled = false
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+
+        //iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleUpload)))
+
+        return iconView
+    }()
     
 //    let goToReport: UITextView = {
 //        let tv = UITextView()
@@ -221,6 +250,18 @@ class ChatCell: UITableViewCell {
         goToReport.topAnchor.constraint(equalTo: question.bottomAnchor).isActive = true
         goToReport.heightAnchor.constraint(equalToConstant: 30).isActive = true
         goToReport.widthAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    private func performAddingChart(_ image: UIImage) {
+        addSubview(chart)
+        chart.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        //goToReport.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
+        chart.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 10).isActive = true
+        chart.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        chart.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
+        
+        chart.image = image
+
     }
     
     @objc func goToCurrentReport() {
