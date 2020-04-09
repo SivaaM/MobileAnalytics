@@ -12,6 +12,7 @@ import Speech
 class SpeechVC: UIViewController, SFSpeechRecognizerDelegate, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
+    let voiceStaticText = "Say something, I'm listening!"
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
        private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
        private var recognitionTask: SFSpeechRecognitionTask?
@@ -114,7 +115,7 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate, UITextViewDelegate
                 print("audioEngine couldn't start because of an error.")
             }
             
-            textView.text = "Say something, I'm listening!"
+            textView.text = voiceStaticText
             
         }
      
@@ -125,7 +126,11 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate, UITextViewDelegate
                 microphoneButton.isEnabled = false
                 microphoneButton.setImage(#imageLiteral(resourceName: "mic"), for: .normal)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.speechDataDelegate?.voiceInput(self.textView.text)
+                    if self.textView.text != self.voiceStaticText {
+                        self.speechDataDelegate?.voiceInput(self.textView.text)
+                    } else {
+                        self.textView.text = "Enter your text..."
+                    }
                 }
             } else {
                 startRecording()
@@ -165,11 +170,15 @@ class SpeechVC: UIViewController, SFSpeechRecognizerDelegate, UITextViewDelegate
         }, completion: nil)
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.textView.text = ""
+    }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
             self.speechDataDelegate?.voiceInput(textView.text)
-            self.textView.text = ""
+            self.textView.text = "Enter your text.."
             return false
         }
         return true

@@ -106,3 +106,29 @@ extension UIViewController {
         return UIScreen.main.bounds.width
     }
 }
+
+struct MockResponse: Codable {
+    let resolvedQuery: String
+    let intentName: String
+    let responseImage: String
+    let speech: String
+}
+
+struct DialogueResponse {
+    let fulfillmentText: String
+}
+
+
+extension Dictionary {
+
+    var json: String {
+        let invalidJson = "Not a valid JSON"
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+            return String(bytes: jsonData, encoding: String.Encoding.utf8) ?? invalidJson
+        } catch {
+            return invalidJson
+        }
+    }
+
+}

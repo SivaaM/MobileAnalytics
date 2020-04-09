@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" contentMode="scaleToFill" text="Enter your text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joM-H3-mIH">
-                                <rect key="frame" x="3" y="10" width="407" height="74"/>
+                                <rect key="frame" x="3" y="10" width="339" height="74"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="pOm-Mz-W2L"/>
@@ -132,7 +132,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="joM-H3-mIH" secondAttribute="trailing" constant="4" id="1Gk-CN-NU9"/>
+                            <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="joM-H3-mIH" secondAttribute="trailing" constant="72" id="1Gk-CN-NU9"/>
                             <constraint firstItem="e2x-w7-DWb" firstAttribute="top" secondItem="iLX-rn-KpY" secondAttribute="top" constant="19" id="CXc-DE-O7J"/>
                             <constraint firstItem="joM-H3-mIH" firstAttribute="leading" secondItem="WTF-ds-x1I" secondAttribute="leading" constant="3" id="IBv-ia-aKs"/>
                             <constraint firstItem="WTF-ds-x1I" firstAttribute="trailing" secondItem="e2x-w7-DWb" secondAttribute="trailing" constant="11" id="qMk-ga-D3S"/>
