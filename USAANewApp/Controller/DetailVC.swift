@@ -12,6 +12,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var iv: UIImageView!
 
     var imageString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let image = imageString {
