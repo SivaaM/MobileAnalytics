@@ -33,6 +33,7 @@ struct Detail {
     var isFinalResponse: Bool = false
     var hasChartResponse: Bool = true
     var chartImage: String?
+    var parentVC: UIViewController?
 }
 
 extension String {

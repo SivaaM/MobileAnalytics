@@ -52,10 +52,14 @@ class ChatFlowVC: UITableViewController, ChatFlowDelegate {
     }
     
     fileprivate func navigateToDetail(_ string: String) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
-        vc.title = "Ask Thi"
-        vc.imageString = string
-        navigationController?.pushViewController(vc, animated: true)
+//        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
+//        vc.title = "Ask Thi"
+//        vc.imageString = string
+//        navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = BarChartViewController.init()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -84,6 +88,7 @@ extension ChatFlowVC {
         cell.delegate = self
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let info = currentData[indexPath.row]
         var defHeight = info.question.estimateFrameForText().height + 50
@@ -101,7 +106,7 @@ extension ChatFlowVC {
 }
 
 class ChatCell: UITableViewCell {
-    
+    let isChart: Bool = true
     var reportConstraints: [NSLayoutConstraint]?
     var bubbleRightAnchor: NSLayoutConstraint?
     var bubbleLeftAnchor: NSLayoutConstraint?
@@ -119,7 +124,6 @@ class ChatCell: UITableViewCell {
                 question.textAlignment = .left
                 bubbleView.backgroundColor = detail.isMemebr ? .appLightBlue : .appDarkBlue
                 performUpdateConstarints()
-
             }
         }
     }
@@ -143,8 +147,8 @@ class ChatCell: UITableViewCell {
             }
             
             if !isMember && detail.hasChartResponse {
-                if let imageString = detail.chartImage {
-                    performAddingChart(UIImage(imageLiteralResourceName: imageString))
+                if let imageString = detail.chartImage, let parenVC = detail.parentVC {
+                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString))
                 }
             } else {
                 if self.subviews.contains(chart) {
@@ -153,6 +157,17 @@ class ChatCell: UITableViewCell {
             }
         }
     }
+    
+    let chartContainer: UIView = {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = .blue
+        return containerView
+    }()
+    
+    lazy var chartVC: BarChartViewController = {
+        return BarChartViewController.init()
+    }()
     
     let question: UITextView = {
             let tv = UITextView()
@@ -218,7 +233,7 @@ class ChatCell: UITableViewCell {
         addSubview(bubbleView)
         addSubview(question)
         //x,y,w,h
-        bubbleRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -50)
+        bubbleRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15)
         //bubbleRightAnchor?.isActive = false
         bubbleLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15)
         //bubbleLeftAnchor?.isActive = true
@@ -262,6 +277,29 @@ class ChatCell: UITableViewCell {
         
         chart.image = image
 
+    }
+    
+    private func performAddingChartContainer(_ parentVC: UIViewController) {
+           addSubview(chartContainer)
+           chartContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+           //goToReport.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
+           chartContainer.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 10).isActive = true
+           chartContainer.heightAnchor.constraint(equalToConstant: 350).isActive = true
+           chartContainer.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
+           addChildVC(parentVC)
+    }
+    
+    private func addChildVC(_ parentVC: UIViewController) {
+        chartVC.view.frame = chartContainer.bounds
+        parentVC.addChild(chartVC)
+        chartVC.didMove(toParent: parentVC)
+        chartContainer.addSubview(chartVC.view)
+    }
+    
+    private func removeChildVC() {
+        chartVC.view.removeFromSuperview()
+        chartVC.removeFromParent()
+        chartVC.willMove(toParent: nil)
     }
     
     @objc func goToCurrentReport() {
