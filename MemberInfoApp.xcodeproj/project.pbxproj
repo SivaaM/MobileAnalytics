@@ -16,6 +16,8 @@
 		431A4D3E242C52AF002014C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431A4D3C242C52AF002014C2 /* LaunchScreen.storyboard */; };
 		431A4D46242C5A62002014C2 /* ChatFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A4D45242C5A62002014C2 /* ChatFlowVC.swift */; };
 		432562ED242E5B6E00ECB383 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432562EC242E5B6E00ECB383 /* DetailVC.swift */; };
+		43491DDA24401E8700D319E4 /* DialogueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43491DD824401E8700D319E4 /* DialogueOperation.swift */; };
+		43491DDB24401E8700D319E4 /* MemberInfoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43491DD924401E8700D319E4 /* MemberInfoOperation.swift */; };
 		4396F1A6243E998A00D0C03B /* mockresponse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4396F1A5243E998900D0C03B /* mockresponse.plist */; };
 		4396F1A9243EA38200D0C03B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396F1A7243EA38200D0C03B /* APIClient.swift */; };
 		4396F1AA243EA38200D0C03B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396F1A8243EA38200D0C03B /* APIRouter.swift */; };
@@ -36,6 +38,8 @@
 		431A4D3F242C52AF002014C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		431A4D45242C5A62002014C2 /* ChatFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFlowVC.swift; sourceTree = "<group>"; };
 		432562EC242E5B6E00ECB383 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		43491DD824401E8700D319E4 /* DialogueOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueOperation.swift; sourceTree = "<group>"; };
+		43491DD924401E8700D319E4 /* MemberInfoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberInfoOperation.swift; sourceTree = "<group>"; };
 		4396F1A5243E998900D0C03B /* mockresponse.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = mockresponse.plist; sourceTree = "<group>"; };
 		4396F1A7243EA38200D0C03B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4396F1A8243EA38200D0C03B /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			children = (
 				4396F1A7243EA38200D0C03B /* APIClient.swift */,
 				4396F1A8243EA38200D0C03B /* APIRouter.swift */,
+				43491DD824401E8700D319E4 /* DialogueOperation.swift */,
+				43491DD924401E8700D319E4 /* MemberInfoOperation.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -203,7 +209,9 @@
 				43AED3CD242E8CA8005D3C4A /* ContainerViewModel.swift in Sources */,
 				4396F1A9243EA38200D0C03B /* APIClient.swift in Sources */,
 				431091E8242C64E000676314 /* SpeechVC.swift in Sources */,
+				43491DDB24401E8700D319E4 /* MemberInfoOperation.swift in Sources */,
 				43AED3CB242E8C14005D3C4A /* Utils.swift in Sources */,
+				43491DDA24401E8700D319E4 /* DialogueOperation.swift in Sources */,
 				431A4D32242C52AD002014C2 /* AppDelegate.swift in Sources */,
 				4396F1AA243EA38200D0C03B /* APIRouter.swift in Sources */,
 				431A4D34242C52AD002014C2 /* SceneDelegate.swift in Sources */,
