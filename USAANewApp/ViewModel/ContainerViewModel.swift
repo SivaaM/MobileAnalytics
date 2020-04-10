@@ -48,6 +48,18 @@ struct ContainerViewMidel {
         }
     }
     
+    func fetchMemberInfo(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
+        router.getMemberInfoData(for: question) { (result) in
+            switch result {
+                case .success(let response):
+                    print("\(self) response: \(response.fulfillmentText)")
+                    completion(.respose(response.fulfillmentText, ""))
+                case .failure(let error):
+                    print("\(self) error: \(error)")
+            }
+        }
+    }
+    
     func fetchInfoforQuestion(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
         
         guard !isMock else {
@@ -63,6 +75,9 @@ struct ContainerViewMidel {
             switch result {
                 case .success(let response):
                     print("\(self) response: \(response.fulfillmentText)")
+                    self.fetchMemberInfo(response.fulfillmentText) { (dataResponse) in
+                            completion(dataResponse)
+                    }
                 case .failure(let error):
                     print("\(self) error: \(error)")
             }
