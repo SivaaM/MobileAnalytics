@@ -106,7 +106,7 @@ extension ChatFlowVC {
 }
 
 class ChatCell: UITableViewCell {
-    let isChart: Bool = true
+    let isChart: Bool = false
     var reportConstraints: [NSLayoutConstraint]?
     var bubbleRightAnchor: NSLayoutConstraint?
     var bubbleLeftAnchor: NSLayoutConstraint?
@@ -130,13 +130,13 @@ class ChatCell: UITableViewCell {
     
     private func performUpdateConstarints() {
         if let detail = detail {
-            let textHeight = detail.question.estimateFrameForText().height + 30
+            let textHeight = detail.question.estimateFrameForText().height + 15
             let chatHeight = !detail.isMemebr && detail.isFinalResponse ? textHeight + 40 : textHeight
             let isMember = detail.isMemebr
             bubbleLeftAnchor?.isActive = isMember
             bubbleRightAnchor?.isActive = !isMember
             bubbleHeightAnchor?.constant = chatHeight
-            bubbleWidthAnchor?.constant = detail.question.estimateFrameForText().width + 40
+            bubbleWidthAnchor?.constant = detail.question.estimateFrameForText().width + 70
             infoHeightAnchor?.constant = textHeight
             if !isMember && detail.isFinalResponse {
                 performAddingReportAction()
