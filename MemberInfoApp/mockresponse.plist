@@ -10,7 +10,7 @@
 			<key>intentName</key>
 			<string>NewMembers</string>
 			<key>responseImage</key>
-			<string>year-chart</string>
+			<string>number-count</string>
 			<key>speech</key>
 			<string>You asked about new members for a specific date (2019-01-01/2019-12-31).</string>
 		</dict>

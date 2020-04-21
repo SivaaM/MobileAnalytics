@@ -98,7 +98,7 @@ extension ChatFlowVC {
         }
         
         if !info.isMemebr && info.hasChartResponse {
-            defHeight += 350.0
+            defHeight += info.chartImage! == "number-count" ? 140.0 : 350.0
         }
         return defHeight
     }
@@ -148,7 +148,8 @@ class ChatCell: UITableViewCell {
             
             if !isMember && detail.hasChartResponse {
                 if let imageString = detail.chartImage, let parenVC = detail.parentVC {
-                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString))
+                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString), width: detail.chartImage! == "number-count" ? 140.0 : 350.0)
+
                 }
             } else {
                 if self.subviews.contains(chart) {
@@ -267,12 +268,12 @@ class ChatCell: UITableViewCell {
         goToReport.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    private func performAddingChart(_ image: UIImage) {
+    private func performAddingChart(_ image: UIImage, width: CGFloat) {
         addSubview(chart)
         chart.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
         //goToReport.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         chart.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 10).isActive = true
-        chart.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        chart.heightAnchor.constraint(equalToConstant: width).isActive = true
         chart.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         
         chart.image = image
