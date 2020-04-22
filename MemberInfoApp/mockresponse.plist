@@ -24,6 +24,16 @@
 			<key>speech</key>
 			<string>You asked about new members for a specific date (2019-12-01/2019-12-31).</string>
 		</dict>
+		<dict>
+			<key>resolvedQuery</key>
+			<string>How many new members were added in state</string>
+			<key>intentName</key>
+			<string>NewMembers</string>
+			<key>responseImage</key>
+			<string>nov-chart-table</string>
+			<key>speech</key>
+			<string>You asked about new members for a specific date (2019-12-01/2019-12-31).</string>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -133,3 +133,17 @@ extension Dictionary {
     }
 
 }
+
+struct MockItem {
+    static func calculateWidth(for item: String) -> CGFloat {
+        var height: CGFloat = 0.0
+        if item.contains("table") {
+            height = 480.0
+        } else if item.contains("number") {
+            height = 140.0
+        } else {
+            height = 375.0
+        }
+        return height
+    }
+}

@@ -98,7 +98,7 @@ extension ChatFlowVC {
         }
         
         if !info.isMemebr && info.hasChartResponse {
-            defHeight += info.chartImage! == "number-count" ? 140.0 : 350.0
+            defHeight += MockItem.calculateWidth(for: info.chartImage!)
         }
         return defHeight
     }
@@ -148,7 +148,7 @@ class ChatCell: UITableViewCell {
             
             if !isMember && detail.hasChartResponse {
                 if let imageString = detail.chartImage, let parenVC = detail.parentVC {
-                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString), width: detail.chartImage! == "number-count" ? 140.0 : 350.0)
+                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString), width: MockItem.calculateWidth(for: detail.chartImage!))
 
                 }
             } else {
