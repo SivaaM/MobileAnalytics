@@ -14,8 +14,8 @@ enum Child {
     case chat
 }
 
-enum VoiceResponse {
-    case respose(String, String?)
+enum VoiceResponse<T, V> {
+    case respose(T, V)
     case confirm
 }
 
@@ -108,16 +108,45 @@ extension UIViewController {
     }
 }
 
-struct MockResponse: Codable {
+struct DialogueMockResponse: Codable {
     let resolvedQuery: String
     let intentName: String
     let responseImage: String
     let speech: String
+    let group: String?
+    let filter_date: String?
+    let filter_memberStatus: String?
+    let filter_militaryRank: String?
 }
 
-struct DialogueResponse {
-    let fulfillmentText: String
+struct DialogueResponse: Codable {
+    struct Metadata: Codable {
+        let intentName: String?
+    }
+    struct Fulfillment: Codable {
+        let speech: String?
+    }
+    struct Parameters: Codable {
+        let filter_date: String?
+        let filter_memberStatus: String?
+        let group: [String]?
+        let filter_militaryRank: String?
+    }
+    struct Result: Codable {
+        let resolvedQuery: String?
+        let parameters: Parameters?
+    }
+    let metadata: Metadata?
+    let fulfillment: Fulfillment?
+    let parameters: Parameters?
+    let result: Result?
+
 }
+
+struct MemberInfoResponse: Codable {
+    let responseImage: String
+}
+
 
 
 extension Dictionary {

@@ -13,6 +13,14 @@
 			<string>year-chart</string>
 			<key>speech</key>
 			<string>You asked about new members for a specific date (2019-01-01/2019-12-31).</string>
+			<key>group</key>
+			<string></string>
+			<key>filter_memberStatus</key>
+			<string></string>
+			<key>filter_date</key>
+			<string>2019-01-01/2019-12-31</string>
+			<key>filter_militaryRank</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>resolvedQuery</key>
@@ -23,6 +31,14 @@
 			<string>nov-chart</string>
 			<key>speech</key>
 			<string>You asked about new members for a specific date (2019-12-01/2019-12-31).</string>
+			<key>group</key>
+			<string></string>
+			<key>filter_memberStatus</key>
+			<string></string>
+			<key>filter_date</key>
+			<string>2019-12-01/2019-12-31</string>
+			<key>filter_militaryRank</key>
+			<string></string>
 		</dict>
 	</array>
 </dict>

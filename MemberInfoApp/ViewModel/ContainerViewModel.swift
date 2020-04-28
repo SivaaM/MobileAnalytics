@@ -8,87 +8,48 @@
 
 import Foundation
 
-struct ContainerViewMidel {
+struct ContainerViewModel {
     let isMock = true
     let confirmationTexts = ["Ok", "ok", "Yes", "yes"]
 
     let router = APIRouter(apiClient: APIClient())
-
-    var mockResponses: [MockResponse] {
-        return fetchProperties()
-    }
+    typealias VoiceResponseBlock = ((VoiceResponse<DialogueMockResponse, MemberInfoResponse>) -> ())
     
-    private func fetchProperties() -> [MockResponse] {
-        guard let path = Bundle.main.path(forResource: "mockresponse", ofType: "plist"),
-            let xml = FileManager.default.contents(atPath: path),
-            let data = (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String: Any],
-            let queries = data["mocks"] as? [Any] else {
-            fatalError("Unable to read data")
-        }
-        var mockresponses = [MockResponse]()
-        for query in queries {
-            guard let query = query as? Dictionary<String, AnyObject>, let jsonData = query.json.data(using: .utf8) else {
-                fatalError("Unable to read data")
-            }
-            
-            if let result = try? JSONDecoder().decode(MockResponse.self, from: jsonData) {
-                mockresponses.append(result)
-            }
-        }
-        
-        return mockresponses
-    }
-    
-    fileprivate func processMockResponse(for question: String, completion: @escaping ((VoiceResponse)-> ())) {
-        let response = mockResponses.filter { (mockResponse) -> Bool in
-            question == mockResponse.resolvedQuery
-        }.first
-        if let response = response {
-            completion(.respose(response.speech, response.responseImage))
-        }
-    }
-    
-    func fetchMemberInfo(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
-        router.getMemberInfoData(for: question) { (result) in
-            switch result {
-                case .success(let response):
-                    print("\(self) response: \(response.fulfillmentText)")
-                    completion(.respose(response.fulfillmentText, ""))
-                case .failure(let error):
-                    print("\(self) error: \(error)")
-            }
-        }
-    }
-    
-    func fetchInfoforQuestion(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
-        
-        guard !isMock else {
-            processMockResponse(for: question) { (response) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                    completion(response)
-                }
-            }
-            return
-        }
-        
-        let dialogueOperation = DialogueOperation(question: question)
-        let memberInfoOperation = MemberInfoOperation()
+    func handleMockReq(for question: String, completion: @escaping VoiceResponseBlock) {
+        let dlgOprn = DialogueOperation(question: question, isMock: isMock)
+        let mbrOprn = MemberInfoOperation<DialogueMockResponse>()
         let connection = BlockOperation {
-          memberInfoOperation.dialogueResponse = dialogueOperation.dialogueResponse
-          memberInfoOperation.error = dialogueOperation.error
+            if let response = dlgOprn.dialogueMockResponse {
+                mbrOprn.dialogueResponse = response
+            }
+            mbrOprn.error = dlgOprn.error
         }
-        memberInfoOperation.addDependency(connection)
-        connection.addDependency(dialogueOperation)
-
-        memberInfoOperation.completionBlock = {
-            if memberInfoOperation.isFinished {
-                if let response = memberInfoOperation.memberInfoResponse {
-                    completion(.respose(response.fulfillmentText, ""))
-                }
+        mbrOprn.addDependency(connection)
+        connection.addDependency(dlgOprn)
+        
+        mbrOprn.completionBlock = {
+            if let response = dlgOprn.dialogueMockResponse, let memberInfoResponse = mbrOprn.memberInfoResponse  {
+                completion(.respose(response, memberInfoResponse))
             }
         }
         let queue = OperationQueue()
-        queue.addOperations([dialogueOperation, memberInfoOperation, connection], waitUntilFinished: false)
+        queue.addOperations([dlgOprn, mbrOprn, connection], waitUntilFinished: false)
+    }
+    
+    func handleReq(for question: String, completion: @escaping VoiceResponseBlock) {
+        let dialogueOperation = DialogueOperation(question: question, isMock: isMock)
+        let mbrOprn = MemberInfoOperation<DialogueResponse>()
+
+    }
+    
+    func fetchInfoforQuestion(_ question: String, completion: @escaping VoiceResponseBlock) {
+        
+        if isMock {
+            handleMockReq(for: question) { (response) in
+                completion(response)
+            }
+        }
+        
         /*
         router.getDialougueFlow(for: question) { (result) in
             switch result {
@@ -100,6 +61,18 @@ struct ContainerViewMidel {
                 case .failure(let error):
                     print("\(self) error: \(error)")
             }
+         
+         func fetchMemberInfo(_ question: String, completion: @escaping ((VoiceResponse)-> ())) {
+             router.getMemberInfoData(for: question) { (result) in
+                 switch result {
+                     case .success(let response):
+                         print("\(self) response: \(response.fulfillmentText)")
+                         completion(.respose(response.fulfillmentText, ""))
+                     case .failure(let error):
+                         print("\(self) error: \(error)")
+                 }
+             }
+         }
         }*/
     
     }

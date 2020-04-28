@@ -106,7 +106,7 @@ extension ChatFlowVC {
 }
 
 class ChatCell: UITableViewCell {
-    let isChart: Bool = true
+    let isChart: Bool = false
     var reportConstraints: [NSLayoutConstraint]?
     var bubbleRightAnchor: NSLayoutConstraint?
     var bubbleLeftAnchor: NSLayoutConstraint?

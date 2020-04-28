@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var containerChatFlow: UIView!
     @IBOutlet weak var containerSpeech: UIView!
 
-    let containerVM = ContainerViewMidel()
+    let containerVM = ContainerViewModel()
     private lazy var chatVC: ChatFlowVC? = {
         guard let childVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatFlowVC") as? ChatFlowVC else {
                      return nil
@@ -98,8 +98,8 @@ extension ViewController: SpeechDataDelegate {
 
             containerVM.fetchInfoforQuestion(question) { (response) in
                 switch response {
-                case .respose(let info, let image):
-                    let detail = Detail(question: info, isMemebr: false, chartImage: image, parentVC: childVC)
+                case .respose(let dialogueResponse, let memberInfoResponse):
+                    let detail = Detail(question: dialogueResponse.resolvedQuery, isMemebr: false, chartImage: memberInfoResponse.responseImage, parentVC: childVC)
                     childVC.injectChat(detail)
                 case .confirm:
                     self.navigateToDetail()

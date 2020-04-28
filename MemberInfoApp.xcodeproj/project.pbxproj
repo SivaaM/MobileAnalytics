@@ -17,6 +17,8 @@
 		431A4D46242C5A62002014C2 /* ChatFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A4D45242C5A62002014C2 /* ChatFlowVC.swift */; };
 		432562ED242E5B6E00ECB383 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432562EC242E5B6E00ECB383 /* DetailVC.swift */; };
 		433500512440ED090003869C /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433500502440ED090003869C /* BarChartViewController.swift */; };
+		4348AEB22457776B00395CD3 /* DialogueMockReqHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348AEB12457776B00395CD3 /* DialogueMockReqHandler.swift */; };
+		4348AEB42457B9E000395CD3 /* ParameterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348AEB32457B9E000395CD3 /* ParameterHandler.swift */; };
 		43491DDA24401E8700D319E4 /* DialogueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43491DD824401E8700D319E4 /* DialogueOperation.swift */; };
 		43491DDB24401E8700D319E4 /* MemberInfoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43491DD924401E8700D319E4 /* MemberInfoOperation.swift */; };
 		4396F1A6243E998A00D0C03B /* mockresponse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4396F1A5243E998900D0C03B /* mockresponse.plist */; };
@@ -50,6 +52,8 @@
 		431A4D45242C5A62002014C2 /* ChatFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFlowVC.swift; sourceTree = "<group>"; };
 		432562EC242E5B6E00ECB383 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		433500502440ED090003869C /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		4348AEB12457776B00395CD3 /* DialogueMockReqHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueMockReqHandler.swift; sourceTree = "<group>"; };
+		4348AEB32457B9E000395CD3 /* ParameterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterHandler.swift; sourceTree = "<group>"; };
 		43491DD824401E8700D319E4 /* DialogueOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueOperation.swift; sourceTree = "<group>"; };
 		43491DD924401E8700D319E4 /* MemberInfoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberInfoOperation.swift; sourceTree = "<group>"; };
 		4396F1A5243E998900D0C03B /* mockresponse.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = mockresponse.plist; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		431A4D30242C52AD002014C2 /* MemberInfoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4348AEB02457774900395CD3 /* Handler */,
 				4335004F2440ECE30003869C /* Chart */,
 				43AED3C9242E8BD5005D3C4A /* Controller */,
 				43AED3C8242E8BC8005D3C4A /* ViewModel */,
@@ -140,6 +145,14 @@
 				433500502440ED090003869C /* BarChartViewController.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		4348AEB02457774900395CD3 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				4348AEB12457776B00395CD3 /* DialogueMockReqHandler.swift */,
+			);
+			path = Handler;
 			sourceTree = "<group>";
 		};
 		43A3BFDD2440F139004651D8 /* Formatters */ = {
@@ -170,6 +183,7 @@
 				4396F1A8243EA38200D0C03B /* APIRouter.swift */,
 				43491DD824401E8700D319E4 /* DialogueOperation.swift */,
 				43491DD924401E8700D319E4 /* MemberInfoOperation.swift */,
+				4348AEB32457B9E000395CD3 /* ParameterHandler.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -327,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4348AEB42457B9E000395CD3 /* ParameterHandler.swift in Sources */,
 				43A3BFDA2440EE8A004651D8 /* DemoBaseViewController.swift in Sources */,
 				431A4D36242C52AD002014C2 /* ViewController.swift in Sources */,
 				431A4D46242C5A62002014C2 /* ChatFlowVC.swift in Sources */,
@@ -347,6 +362,7 @@
 				43A3BFE92440F1B6004651D8 /* RadarMarkerView.swift in Sources */,
 				43A3BFE42440F150004651D8 /* DateValueFormatter.swift in Sources */,
 				431A4D34242C52AD002014C2 /* SceneDelegate.swift in Sources */,
+				4348AEB22457776B00395CD3 /* DialogueMockReqHandler.swift in Sources */,
 				43AED3CF242E8F61005D3C4A /* ChatViewModel.swift in Sources */,
 				432562ED242E5B6E00ECB383 /* DetailVC.swift in Sources */,
 			);
