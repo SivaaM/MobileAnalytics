@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class MemberInfoOperation: Operation {
+final class MemberInfoOperation<T>: Operation {
 
     override var isAsynchronous: Bool {
         return true
@@ -38,26 +38,45 @@ final class MemberInfoOperation: Operation {
         return _isFinished
     }
     
-    var memberInfoResponse: DialogueResponse?
-    var dialogueResponse: DialogueResponse?
+    var memberInfoResponse: MemberInfoResponse?
+    var dialogueResponse: T?
+
     var error: Error?
     let router = APIRouter(apiClient: APIClient())
 
     override func start() {
-        guard !isFinished, let dialogueResponse = dialogueResponse, error == nil else { return }
         _isExecuting = true
         
-        router.getMemberInfoData(for: dialogueResponse.fulfillmentText) { [weak self](result) in
-            switch result {
-            case .success(let response):
-                self?.memberInfoResponse = response
-                self?._isFinished = true
-            case .failure(let error):
-                self?.error = error
-            }
-        }
+        if !isFinished, let dialogueResponse = dialogueResponse, error == nil {
+            router.getMemberInfoData(for: dialogueResponse) { [weak self](result) in
+                guard let _self = self else { return }
+                defer {
+                    _self._isExecuting = false
+                    _self._isFinished = true
+                }
 
+                switch result {
+                case .success(let response):
+                    _self.memberInfoResponse = response
+                case .failure(let error):
+                    self?.error = error
+                }
+            }
+        } else {
+            self._isExecuting = false
+            self._isFinished = true
+        }
+        
     }
+    
+    func handleMockReq(for dialogueMockResponse: DialogueMockResponse) {
+            defer {
+                self._isExecuting = false
+                self._isFinished = true
+            }
+        self.memberInfoResponse = MemberInfoResponse(responseImage: dialogueMockResponse.responseImage)
+    }
+
 
     override func cancel() {
         _isFinished = true

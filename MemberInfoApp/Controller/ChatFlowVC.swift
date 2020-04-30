@@ -98,7 +98,7 @@ extension ChatFlowVC {
         }
         
         if !info.isMemebr && info.hasChartResponse {
-            defHeight += MockItem.calculateWidth(for: info.chartImage!)
+            defHeight += 350.0
         }
         return defHeight
     }
@@ -130,13 +130,13 @@ class ChatCell: UITableViewCell {
     
     private func performUpdateConstarints() {
         if let detail = detail {
-            let textHeight = detail.question.estimateFrameForText().height + 15
+            let textHeight = detail.question.estimateFrameForText().height + 30
             let chatHeight = !detail.isMemebr && detail.isFinalResponse ? textHeight + 40 : textHeight
             let isMember = detail.isMemebr
             bubbleLeftAnchor?.isActive = isMember
             bubbleRightAnchor?.isActive = !isMember
             bubbleHeightAnchor?.constant = chatHeight
-            bubbleWidthAnchor?.constant = detail.question.estimateFrameForText().width + 70
+            bubbleWidthAnchor?.constant = detail.question.estimateFrameForText().width + 40
             infoHeightAnchor?.constant = textHeight
             if !isMember && detail.isFinalResponse {
                 performAddingReportAction()
@@ -148,8 +148,7 @@ class ChatCell: UITableViewCell {
             
             if !isMember && detail.hasChartResponse {
                 if let imageString = detail.chartImage, let parenVC = detail.parentVC {
-                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString), width: MockItem.calculateWidth(for: detail.chartImage!))
-
+                    isChart ? performAddingChartContainer(parenVC) : performAddingChart(UIImage(imageLiteralResourceName: imageString))
                 }
             } else {
                 if self.subviews.contains(chart) {
@@ -268,12 +267,12 @@ class ChatCell: UITableViewCell {
         goToReport.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    private func performAddingChart(_ image: UIImage, width: CGFloat) {
+    private func performAddingChart(_ image: UIImage) {
         addSubview(chart)
         chart.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
         //goToReport.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         chart.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 10).isActive = true
-        chart.heightAnchor.constraint(equalToConstant: width).isActive = true
+        chart.heightAnchor.constraint(equalToConstant: 350).isActive = true
         chart.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         
         chart.image = image
