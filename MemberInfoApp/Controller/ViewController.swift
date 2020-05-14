@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     
     private func addChatVC() {
         if let childVC = chatVC {
-            childVC.injectChat(nil)
+            childVC.chatVM.injectQuestion(question: "")
         }
     }
     
@@ -93,14 +93,12 @@ extension ViewController: SpeechDataDelegate {
         
         if let childVC = chatVC, let question = string {
             print(question)
-            let detail = Detail(question: question, isMemebr: true)
-            childVC.injectChat(detail)
+            childVC.chatVM.injectQuestion(question: question)
 
             containerVM.fetchInfoforQuestion(question) { (response) in
                 switch response {
                 case .respose(let dialogueResponse, let memberInfoResponse):
-                    let detail = Detail(question: dialogueResponse.resolvedQuery, isMemebr: false, chartImage: memberInfoResponse.responseImage, parentVC: childVC)
-                    childVC.injectChat(detail)
+                    childVC.chatVM.injectBotResponse(dialogueRes: dialogueResponse, mbrInfoRes: memberInfoResponse, parentVC: childVC)
                 case .confirm:
                     self.navigateToDetail()
                 }

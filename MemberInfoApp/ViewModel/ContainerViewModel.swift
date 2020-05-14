@@ -13,7 +13,6 @@ struct ContainerViewModel {
     let confirmationTexts = ["Ok", "ok", "Yes", "yes"]
 
     let router = APIRouter(apiClient: APIClient())
-    typealias VoiceResponseBlock = ((VoiceResponse<DialogueMockResponse, MemberInfoResponse>) -> ())
     
     func handleMockReq(for question: String, completion: @escaping VoiceResponseBlock) {
         let dlgOprn = DialogueOperation(question: question, isMock: isMock)

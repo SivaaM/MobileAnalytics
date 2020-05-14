@@ -1,0 +1,13 @@
+{
+  "data": [
+   {
+     "c1": "42",
+   }
+  ],
+  "columns": [
+    {
+     "column": "c1",
+     "title": "Members"
+   }
+  ],
+}

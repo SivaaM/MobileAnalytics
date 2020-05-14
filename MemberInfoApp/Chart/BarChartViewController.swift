@@ -1,161 +1,48 @@
 //
 //  BarChartViewController.swift
-//  ChartsDemo-iOS
+//  ChartsTutorial
 //
-//  Created by Jacob Christie on 2017-07-09.
-//  Copyright © 2017 jc. All rights reserved.
+//  Created by Fahath Rajak on 4/20/19.
+//  Copyright © 2020 Fahath. All rights reserved.
 //
 
-#if canImport(UIKit)
-    import UIKit
-#endif
+import UIKit
 import Charts
-#if canImport(UIKit)
-    import UIKit
-#endif
 
-class BarChartViewController: DemoBaseViewController {
-    
-    @IBOutlet var chartView: BarChartView!
-    /*
-    @IBOutlet var sliderX: UISlider!
-    @IBOutlet var sliderY: UISlider!
-    @IBOutlet var sliderTextX: UITextField!
-    @IBOutlet var sliderTextY: UITextField!
-     */
-    
+class BarChartViewController: UIViewController {
+
+  lazy var barChartView: BarChartView = {
+      return BarChartView()
+  }()
     override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
+    view.addSubview(barChartView)
+    NSLayoutConstraint.activate(barChartView.edgeConstraints(top: 80, left: 0, bottom: 0, right: 0))
 
-        // Do any additional setup after loading the view.
-        self.title = "Bar Chart"
-        
-        self.options = [.toggleValues,
-                        .toggleHighlight,
-                        .animateX,
-                        .animateY,
-                        .animateXY,
-                        .saveToGallery,
-                        .togglePinchZoom,
-                        .toggleData,
-                        .toggleBarBorders]
-        
-        self.setup(barLineChartView: chartView)
-        
-        chartView.delegate = self
-        
-        chartView.drawBarShadowEnabled = false
-        chartView.drawValueAboveBarEnabled = false
-        
-        chartView.maxVisibleCount = 60
-        
-        let xAxis = chartView.xAxis
-        xAxis.labelPosition = .bottom
-        xAxis.labelFont = .systemFont(ofSize: 10)
-        xAxis.granularity = 1
-        xAxis.labelCount = 7
-        xAxis.valueFormatter = DayAxisValueFormatter(chart: chartView)
-        
-        let leftAxisFormatter = NumberFormatter()
-        leftAxisFormatter.minimumFractionDigits = 0
-        leftAxisFormatter.maximumFractionDigits = 1
-        leftAxisFormatter.negativeSuffix = " n"
-        leftAxisFormatter.positiveSuffix = " n"
-        
-        let leftAxis = chartView.leftAxis
-        leftAxis.labelFont = .systemFont(ofSize: 10)
-        leftAxis.labelCount = 8
-        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-        leftAxis.labelPosition = .outsideChart
-        leftAxis.spaceTop = 0.15
-        leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
-        
-        let rightAxis = chartView.rightAxis
-        rightAxis.enabled = true
-        rightAxis.labelFont = .systemFont(ofSize: 10)
-        rightAxis.labelCount = 8
-        rightAxis.valueFormatter = leftAxis.valueFormatter
-        rightAxis.spaceTop = 0.15
-        rightAxis.axisMinimum = 0
-        
-        let l = chartView.legend
-        l.horizontalAlignment = .left
-        l.verticalAlignment = .bottom
-        l.orientation = .horizontal
-        l.drawInside = false
-        l.form = .circle
-        l.formSize = 9
-        l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
-        l.xEntrySpace = 4
-//        chartView.legend = l
-
-        let marker = XYMarkerView(color: UIColor(white: 180/250, alpha: 1),
-                                  font: .systemFont(ofSize: 12),
-                                  textColor: .white,
-                                  insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),
-                                  xAxisValueFormatter: chartView.xAxis.valueFormatter!)
-        marker.chartView = chartView
-        marker.minimumSize = CGSize(width: 80, height: 40)
-        chartView.marker = marker
-        
-//        sliderX.value = 12
-//        sliderY.value = 50
-        //slidersValueChanged(nil)
-        self.updateChartData()
-
+    barChartView.animate(yAxisDuration: 2.0)
+    barChartView.pinchZoomEnabled = false
+    barChartView.drawBarShadowEnabled = false
+    barChartView.drawBordersEnabled = false
+    barChartView.doubleTapToZoomEnabled = false
+    barChartView.drawGridBackgroundEnabled = true
+    barChartView.chartDescription?.text = "Bar Chart View"
+    
+    setChart(dataPoints: players, values: goals.map { Double($0) })
+  }
+  
+  
+  func setChart(dataPoints: [String], values: [Double]) {
+    barChartView.noDataText = "You need to provide data for the chart."
+    
+    var dataEntries: [BarChartDataEntry] = []
+    
+    for i in 0..<dataPoints.count {
+      let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
+      dataEntries.append(dataEntry)
     }
     
-    override func updateChartData() {
-        if self.shouldHideData {
-            chartView.data = nil
-            return
-        }
-        
-        self.setDataCount(3, range: UInt32(50))
-    }
-    
-    func setDataCount(_ count: Int, range: UInt32) {
-        let start = 1
-        
-        let yVals = (start..<start+count+1).map { (i) -> BarChartDataEntry in
-            let mult = range + 1
-            let val = Double(arc4random_uniform(mult))
-//            if arc4random_uniform(100) < 25 {
-//                return BarChartDataEntry(x: Double(i), y: val, icon: UIImage(named: "icon"))
-//            } else {
-                return BarChartDataEntry(x: 0, y: 40)
-           // }
-        }
-        
-        var set1: BarChartDataSet! = nil
-        if let set = chartView.data?.dataSets.first as? BarChartDataSet {
-            set1 = set
-            set1.replaceEntries(yVals)
-            chartView.data?.notifyDataChanged()
-            chartView.notifyDataSetChanged()
-        } else {
-            set1 = BarChartDataSet(entries: yVals, label: "The year 2019")
-            set1.colors = ChartColorTemplates.material()
-            set1.drawValuesEnabled = false
-            
-            let data = BarChartData(dataSet: set1)
-            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
-            data.barWidth = 0.9
-            chartView.data = data
-        }
-        
-//        chartView.setNeedsDisplay()
-    }
-    
-    override func optionTapped(_ option: Option) {
-        super.handleOption(option, forChartView: chartView)
-    }
-    /*
-    // MARK: - Actions
-    @IBAction func slidersValueChanged(_ sender: Any?) {
-        sliderTextX.text = "\(Int(sliderX.value + 2))"
-        sliderTextY.text = "\(Int(sliderY.value))"
-        
-        self.updateChartData()
-    }*/
+    let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Bar Chart View")
+    let chartData = BarChartData(dataSet: chartDataSet)
+    barChartView.data = chartData
+  }
 }

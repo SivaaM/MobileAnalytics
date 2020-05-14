@@ -16,7 +16,6 @@
 		431A4D3E242C52AF002014C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431A4D3C242C52AF002014C2 /* LaunchScreen.storyboard */; };
 		431A4D46242C5A62002014C2 /* ChatFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A4D45242C5A62002014C2 /* ChatFlowVC.swift */; };
 		432562ED242E5B6E00ECB383 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432562EC242E5B6E00ECB383 /* DetailVC.swift */; };
-		433500512440ED090003869C /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433500502440ED090003869C /* BarChartViewController.swift */; };
 		4348AEC0245B8FF100395CD3 /* DialogueMockReqHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348AEBF245B8FF100395CD3 /* DialogueMockReqHandler.swift */; };
 		4348AEC2245B903000395CD3 /* ParameterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348AEC1245B903000395CD3 /* ParameterHandler.swift */; };
 		43491DDA24401E8700D319E4 /* DialogueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43491DD824401E8700D319E4 /* DialogueOperation.swift */; };
@@ -26,15 +25,16 @@
 		4396F1A6243E998A00D0C03B /* mockresponse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4396F1A5243E998900D0C03B /* mockresponse.plist */; };
 		4396F1A9243EA38200D0C03B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396F1A7243EA38200D0C03B /* APIClient.swift */; };
 		4396F1AA243EA38200D0C03B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4396F1A8243EA38200D0C03B /* APIRouter.swift */; };
-		43A3BFDA2440EE8A004651D8 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFD92440EE8A004651D8 /* DemoBaseViewController.swift */; };
-		43A3BFDC2440F04C004651D8 /* BarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A3BFDB2440F04B004651D8 /* BarChartViewController.xib */; };
-		43A3BFE22440F150004651D8 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFDE2440F14F004651D8 /* DayAxisValueFormatter.swift */; };
-		43A3BFE32440F150004651D8 /* IntAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFDF2440F14F004651D8 /* IntAxisValueFormatter.swift */; };
-		43A3BFE42440F150004651D8 /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFE02440F14F004651D8 /* DateValueFormatter.swift */; };
-		43A3BFE52440F150004651D8 /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFE12440F14F004651D8 /* LargeValueFormatter.swift */; };
-		43A3BFE92440F1B6004651D8 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFE72440F1B6004651D8 /* RadarMarkerView.swift */; };
-		43A3BFEA2440F1B6004651D8 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFE82440F1B6004651D8 /* XYMarkerView.swift */; };
-		43A3BFEC2440F220004651D8 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BFEB2440F220004651D8 /* BalloonMarker.swift */; };
+		4398489A246CC69700950FB7 /* RowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43984899246CC69700950FB7 /* RowViewModel.swift */; };
+		4398489C246CC6E200950FB7 /* UserQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4398489B246CC6E200950FB7 /* UserQuestionCell.swift */; };
+		4398489E246CC70000950FB7 /* BotResponseMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4398489D246CC70000950FB7 /* BotResponseMembersCell.swift */; };
+		439848A0246CC70E00950FB7 /* BotResponseChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4398489F246CC70E00950FB7 /* BotResponseChartCell.swift */; };
+		439848A2246CD0CF00950FB7 /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439848A1246CD0CE00950FB7 /* Observables.swift */; };
+		439848A4246CDFB900950FB7 /* by_members.json in Resources */ = {isa = PBXBuildFile; fileRef = 439848A3246CDFB900950FB7 /* by_members.json */; };
+		439848A6246CDFC500950FB7 /* by_gender.json in Resources */ = {isa = PBXBuildFile; fileRef = 439848A5246CDFC500950FB7 /* by_gender.json */; };
+		439848AA246CFC0000950FB7 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439848A7246CFBFF00950FB7 /* CommonData.swift */; };
+		439848AB246CFC0000950FB7 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439848A8246CFC0000950FB7 /* LineChartViewController.swift */; };
+		439848AC246CFC0000950FB7 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439848A9246CFC0000950FB7 /* BarChartViewController.swift */; };
 		43AED3CB242E8C14005D3C4A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AED3CA242E8C14005D3C4A /* Utils.swift */; };
 		43AED3CD242E8CA8005D3C4A /* ContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AED3CC242E8CA8005D3C4A /* ContainerViewModel.swift */; };
 		43AED3CF242E8F61005D3C4A /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AED3CE242E8F61005D3C4A /* ChatViewModel.swift */; };
@@ -83,7 +83,6 @@
 		431A4D3F242C52AF002014C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		431A4D45242C5A62002014C2 /* ChatFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFlowVC.swift; sourceTree = "<group>"; };
 		432562EC242E5B6E00ECB383 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		433500502440ED090003869C /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		4348AEBF245B8FF100395CD3 /* DialogueMockReqHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueMockReqHandler.swift; sourceTree = "<group>"; };
 		4348AEC1245B903000395CD3 /* ParameterHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterHandler.swift; sourceTree = "<group>"; };
 		43491DD824401E8700D319E4 /* DialogueOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueOperation.swift; sourceTree = "<group>"; };
@@ -92,15 +91,16 @@
 		4396F1A5243E998900D0C03B /* mockresponse.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = mockresponse.plist; sourceTree = "<group>"; };
 		4396F1A7243EA38200D0C03B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4396F1A8243EA38200D0C03B /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
-		43A3BFD92440EE8A004651D8 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
-		43A3BFDB2440F04B004651D8 /* BarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarChartViewController.xib; sourceTree = "<group>"; };
-		43A3BFDE2440F14F004651D8 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
-		43A3BFDF2440F14F004651D8 /* IntAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAxisValueFormatter.swift; sourceTree = "<group>"; };
-		43A3BFE02440F14F004651D8 /* DateValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
-		43A3BFE12440F14F004651D8 /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
-		43A3BFE72440F1B6004651D8 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
-		43A3BFE82440F1B6004651D8 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
-		43A3BFEB2440F220004651D8 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
+		43984899246CC69700950FB7 /* RowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewModel.swift; sourceTree = "<group>"; };
+		4398489B246CC6E200950FB7 /* UserQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionCell.swift; sourceTree = "<group>"; };
+		4398489D246CC70000950FB7 /* BotResponseMembersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponseMembersCell.swift; sourceTree = "<group>"; };
+		4398489F246CC70E00950FB7 /* BotResponseChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponseChartCell.swift; sourceTree = "<group>"; };
+		439848A1246CD0CE00950FB7 /* Observables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
+		439848A3246CDFB900950FB7 /* by_members.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = by_members.json; sourceTree = "<group>"; };
+		439848A5246CDFC500950FB7 /* by_gender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = by_gender.json; sourceTree = "<group>"; };
+		439848A7246CFBFF00950FB7 /* CommonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
+		439848A8246CFC0000950FB7 /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		439848A9246CFC0000950FB7 /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		43AED3CA242E8C14005D3C4A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43AED3CC242E8CA8005D3C4A /* ContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewModel.swift; sourceTree = "<group>"; };
 		43AED3CE242E8F61005D3C4A /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 		431A4D30242C52AD002014C2 /* MemberInfoApp */ = {
 			isa = PBXGroup;
 			children = (
+				43984896246CC61300950FB7 /* Views */,
 				4348AEBC245B8FE300395CD3 /* Handler */,
 				4335004F2440ECE30003869C /* Chart */,
 				43AED3C9242E8BD5005D3C4A /* Controller */,
@@ -147,6 +148,8 @@
 				431A4D31242C52AD002014C2 /* AppDelegate.swift */,
 				431A4D33242C52AD002014C2 /* SceneDelegate.swift */,
 				4396F1A5243E998900D0C03B /* mockresponse.plist */,
+				439848A5246CDFC500950FB7 /* by_gender.json */,
+				439848A3246CDFB900950FB7 /* by_members.json */,
 				431A4D37242C52AD002014C2 /* Main.storyboard */,
 				431A4D3A242C52AF002014C2 /* Assets.xcassets */,
 				431A4D3C242C52AF002014C2 /* LaunchScreen.storyboard */,
@@ -158,12 +161,10 @@
 		4335004F2440ECE30003869C /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				439848A9246CFC0000950FB7 /* BarChartViewController.swift */,
+				439848A7246CFBFF00950FB7 /* CommonData.swift */,
+				439848A8246CFC0000950FB7 /* LineChartViewController.swift */,
 				43804F472448F008009FA0F4 /* Charts.xcodeproj */,
-				43A3BFE62440F19A004651D8 /* Components */,
-				43A3BFDD2440F139004651D8 /* Formatters */,
-				43A3BFDB2440F04B004651D8 /* BarChartViewController.xib */,
-				43A3BFD92440EE8A004651D8 /* DemoBaseViewController.swift */,
-				433500502440ED090003869C /* BarChartViewController.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -192,25 +193,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		43A3BFDD2440F139004651D8 /* Formatters */ = {
+		43984896246CC61300950FB7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				43A3BFE02440F14F004651D8 /* DateValueFormatter.swift */,
-				43A3BFDE2440F14F004651D8 /* DayAxisValueFormatter.swift */,
-				43A3BFDF2440F14F004651D8 /* IntAxisValueFormatter.swift */,
-				43A3BFE12440F14F004651D8 /* LargeValueFormatter.swift */,
+				4398489B246CC6E200950FB7 /* UserQuestionCell.swift */,
+				4398489D246CC70000950FB7 /* BotResponseMembersCell.swift */,
+				4398489F246CC70E00950FB7 /* BotResponseChartCell.swift */,
 			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
-		43A3BFE62440F19A004651D8 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				43A3BFEB2440F220004651D8 /* BalloonMarker.swift */,
-				43A3BFE72440F1B6004651D8 /* RadarMarkerView.swift */,
-				43A3BFE82440F1B6004651D8 /* XYMarkerView.swift */,
-			);
-			path = Components;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		43AED3C6242E8BAF005D3C4A /* Networking */ = {
@@ -228,6 +218,7 @@
 		43AED3C7242E8BBB005D3C4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				439848A1246CD0CE00950FB7 /* Observables.swift */,
 				43AED3CA242E8C14005D3C4A /* Utils.swift */,
 			);
 			path = Model;
@@ -236,6 +227,7 @@
 		43AED3C8242E8BC8005D3C4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				43984899246CC69700950FB7 /* RowViewModel.swift */,
 				43AED3CC242E8CA8005D3C4A /* ContainerViewModel.swift */,
 				43AED3CE242E8F61005D3C4A /* ChatViewModel.swift */,
 			);
@@ -337,8 +329,9 @@
 			files = (
 				431A4D3E242C52AF002014C2 /* LaunchScreen.storyboard in Resources */,
 				4396F1A6243E998A00D0C03B /* mockresponse.plist in Resources */,
-				43A3BFDC2440F04C004651D8 /* BarChartViewController.xib in Resources */,
 				431A4D3B242C52AF002014C2 /* Assets.xcassets in Resources */,
+				439848A6246CDFC500950FB7 /* by_gender.json in Resources */,
+				439848A4246CDFB900950FB7 /* by_members.json in Resources */,
 				431A4D39242C52AD002014C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,25 +344,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4348AEC2245B903000395CD3 /* ParameterHandler.swift in Sources */,
-				43A3BFDA2440EE8A004651D8 /* DemoBaseViewController.swift in Sources */,
+				439848A2246CD0CF00950FB7 /* Observables.swift in Sources */,
 				431A4D36242C52AD002014C2 /* ViewController.swift in Sources */,
 				431A4D46242C5A62002014C2 /* ChatFlowVC.swift in Sources */,
+				439848AC246CFC0000950FB7 /* BarChartViewController.swift in Sources */,
 				43AED3CD242E8CA8005D3C4A /* ContainerViewModel.swift in Sources */,
-				433500512440ED090003869C /* BarChartViewController.swift in Sources */,
 				4396F1A9243EA38200D0C03B /* APIClient.swift in Sources */,
 				431091E8242C64E000676314 /* SpeechVC.swift in Sources */,
 				43491DDB24401E8700D319E4 /* MemberInfoOperation.swift in Sources */,
-				43A3BFEA2440F1B6004651D8 /* XYMarkerView.swift in Sources */,
+				439848AA246CFC0000950FB7 /* CommonData.swift in Sources */,
+				439848AB246CFC0000950FB7 /* LineChartViewController.swift in Sources */,
 				43AED3CB242E8C14005D3C4A /* Utils.swift in Sources */,
 				43491DDA24401E8700D319E4 /* DialogueOperation.swift in Sources */,
-				43A3BFE22440F150004651D8 /* DayAxisValueFormatter.swift in Sources */,
+				4398489A246CC69700950FB7 /* RowViewModel.swift in Sources */,
+				4398489C246CC6E200950FB7 /* UserQuestionCell.swift in Sources */,
+				439848A0246CC70E00950FB7 /* BotResponseChartCell.swift in Sources */,
 				431A4D32242C52AD002014C2 /* AppDelegate.swift in Sources */,
-				43A3BFE52440F150004651D8 /* LargeValueFormatter.swift in Sources */,
 				4396F1AA243EA38200D0C03B /* APIRouter.swift in Sources */,
-				43A3BFEC2440F220004651D8 /* BalloonMarker.swift in Sources */,
-				43A3BFE32440F150004651D8 /* IntAxisValueFormatter.swift in Sources */,
-				43A3BFE92440F1B6004651D8 /* RadarMarkerView.swift in Sources */,
-				43A3BFE42440F150004651D8 /* DateValueFormatter.swift in Sources */,
+				4398489E246CC70000950FB7 /* BotResponseMembersCell.swift in Sources */,
 				431A4D34242C52AD002014C2 /* SceneDelegate.swift in Sources */,
 				4348AEC0245B8FF100395CD3 /* DialogueMockReqHandler.swift in Sources */,
 				43AED3CF242E8F61005D3C4A /* ChatViewModel.swift in Sources */,

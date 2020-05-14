@@ -68,13 +68,17 @@ final class APIRouter {
                         completion(.success(items))
                     } catch {
                         if let dialogueRes = dialogueResponse as? DialogueMockResponse {
-                            completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
+                            //completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
+                            let response: MemberInfoResponse = FileLoader.load(dialogueRes.intentType + ".json")
+                            completion(.success(response))
                         } else {
                             completion(.failure(error))
                         }                    }
                 case .failure(let error):
                     if let dialogueRes = dialogueResponse as? DialogueMockResponse {
-                        completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
+                        //completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
+                        let response: MemberInfoResponse = FileLoader.load(dialogueRes.intentType + ".json")
+                        completion(.success(response))
                     } else {
                         completion(.failure(error))
                     }

@@ -1,0 +1,34 @@
+{
+  "data": [
+   {
+     "c1": "Male",
+     "c2": "4"
+   },
+   {
+     "c1": "Female",
+     "c2": "10"
+   },
+   {
+     "c1": "Female",
+     "c2": "50"
+   },
+   {
+     "c1": "Female",
+     "c2": "100"
+   },
+   {
+     "c1": "Female",
+     "c2": "60"
+   }
+  ],
+  "columns": [
+    {
+     "column": "c1",
+     "title": "Gender"
+   },
+   {
+     "column": "c2",
+     "title": "Members"
+   }
+  ],
+}

@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-enum Child {
-    case speech
-    case chat
-}
-
 enum VoiceResponse<T, V> {
     case respose(T, V)
     case confirm
@@ -21,19 +16,6 @@ enum VoiceResponse<T, V> {
 
 protocol SpeechDataDelegate: class {
     func voiceInput(_ string: String?)
-}
-
-protocol ChatFlowDelegate: class {
-    func showReport(for param: String?)
-}
-
-struct Detail {
-    let question: String
-    let isMemebr: Bool
-    var isFinalResponse: Bool = false
-    var hasChartResponse: Bool = true
-    var chartImage: String?
-    var parentVC: UIViewController?
 }
 
 extension String {
@@ -117,6 +99,7 @@ struct DialogueMockResponse: Codable {
     let filter_date: String?
     let filter_memberStatus: String?
     let filter_militaryRank: String?
+    let intentType: String
 }
 
 struct DialogueResponse: Codable {
@@ -144,10 +127,19 @@ struct DialogueResponse: Codable {
 }
 
 struct MemberInfoResponse: Codable {
-    let responseImage: String
+    let data: [DataSec]
+    let columns: [ColumnsData]
 }
 
+struct DataSec: Codable {
+    let c1: String
+    let c2: String?
+}
 
+struct ColumnsData: Codable {
+    let column: String
+    let title: String
+}
 
 extension Dictionary {
 
@@ -161,4 +153,49 @@ extension Dictionary {
         }
     }
 
+}
+
+extension UITableViewCell {
+    /// Generated cell identifier derived from class name
+    static func cellIdentifier() -> String {
+        return String(describing: self)
+    }
+}
+
+struct FileLoader {
+    static func load<T: Decodable>(_ filename: String) -> T {
+        let data: Data
+        
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+            else {
+                fatalError("Couldn't find \(filename) in main bundle.")
+        }
+        
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
+    }
+}
+
+typealias VoiceResponseBlock = ((VoiceResponse<DialogueMockResponse, MemberInfoResponse>) -> ())
+
+extension UIView {
+    /// Generating constraints to superview's edge
+    func edgeConstraints(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> [NSLayoutConstraint] {
+        return [
+            self.leftAnchor.constraint(equalTo: self.superview!.leftAnchor, constant: left),
+            self.rightAnchor.constraint(equalTo: self.superview!.rightAnchor, constant: -right),
+            self.topAnchor.constraint(equalTo: self.superview!.topAnchor, constant: top),
+            self.bottomAnchor.constraint(equalTo: self.superview!.bottomAnchor, constant: -bottom)
+        ]
+    }
 }

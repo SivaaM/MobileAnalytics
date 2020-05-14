@@ -68,15 +68,6 @@ final class MemberInfoOperation<T>: Operation {
         }
         
     }
-    
-    func handleMockReq(for dialogueMockResponse: DialogueMockResponse) {
-            defer {
-                self._isExecuting = false
-                self._isFinished = true
-            }
-        self.memberInfoResponse = MemberInfoResponse(responseImage: dialogueMockResponse.responseImage)
-    }
-
 
     override func cancel() {
         _isFinished = true
