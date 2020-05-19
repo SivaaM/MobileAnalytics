@@ -49,6 +49,30 @@ extension String {
     private func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
         return input.rawValue
     }
+    
+    func slice(from: String, to: String) -> String? {
+
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
+    }
+    
+    func attributedStyle(for attribute: AttributedText) -> NSAttributedString {
+        let range = (self as NSString).range(of: attribute.attributedText)
+        
+        let attributedString = NSMutableAttributedString(string: String(describing: self), attributes: [
+            NSAttributedString.Key.foregroundColor: attribute.baseColor,
+            NSAttributedString.Key.font: attribute.baseFont])
+        
+        
+        
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: attribute.attributedColor, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: attribute.attributedFont, range: range)
+
+        return attributedString as NSAttributedString
+    }
 }
 
 
@@ -198,4 +222,12 @@ extension UIView {
             self.bottomAnchor.constraint(equalTo: self.superview!.bottomAnchor, constant: -bottom)
         ]
     }
+}
+
+struct AttributedText {
+    let baseFont: UIFont
+    let baseColor: UIColor
+    let attributedFont: UIFont
+    let attributedColor: UIColor
+    let attributedText: String
 }

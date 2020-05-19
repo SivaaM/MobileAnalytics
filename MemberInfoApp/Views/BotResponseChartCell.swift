@@ -52,8 +52,10 @@ class BotResponseChartCell: UITableViewCell, CellConfigurable {
     func setup(viewModel: RowViewModel) {
         if let vm = viewModel as? BotResponseChartViewModel {
             self.viewModel = vm
-            question.text = vm.response
-            question.textColor = .white
+//            question.text = vm.response
+//            question.textColor = .white
+            question.attributedText = vm.formatedResponse
+
             question.textAlignment = .left
             bubbleView.backgroundColor = .appDarkBlue
             performUpdateConstarints()

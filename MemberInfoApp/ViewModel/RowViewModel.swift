@@ -26,6 +26,15 @@ class BotResponseMembersViewModel: RowViewModel {
     let response: String
     let title: String
     let totalMbrs: Int
+    var formatedResponse: NSAttributedString {
+        if let dateString  = response.slice(from: "(", to: ")") {
+            let attribute = AttributedText(baseFont: UIFont(name: "TrebuchetMS", size: 20)!, baseColor: .white, attributedFont: UIFont(name: "TrebuchetMS", size: 17)!, attributedColor: .white, attributedText: dateString)
+            return response.attributedStyle(for: attribute)
+        } else {
+            let attribute = AttributedText(baseFont: UIFont(name: "TrebuchetMS", size: 20)!, baseColor: .white, attributedFont: UIFont(name: "TrebuchetMS", size: 20)!, attributedColor: .white, attributedText: "")
+            return response.attributedStyle(for: attribute)
+        }
+    }
     
     init(response: String, title: String, totalMbrs: Int) {
         self.response = response
@@ -38,7 +47,15 @@ class BotResponseChartViewModel: RowViewModel {
     let response: String
     let chartInfo: [Int]
     let parentVC: UIViewController
-    
+    var formatedResponse: NSAttributedString {
+        if let dateString  = response.slice(from: "(", to: ")") {
+            let attribute = AttributedText(baseFont: UIFont(name: "TrebuchetMS", size: 20)!, baseColor: .white, attributedFont: UIFont(name: "TrebuchetMS", size: 17)!, attributedColor: .white, attributedText: dateString)
+            return response.attributedStyle(for: attribute)
+        } else {
+            let attribute = AttributedText(baseFont: UIFont(name: "TrebuchetMS", size: 20)!, baseColor: .white, attributedFont: UIFont(name: "TrebuchetMS", size: 20)!, attributedColor: .white, attributedText: "")
+            return response.attributedStyle(for: attribute)
+        }
+    }
     init(response: String, chartInfo: [Int], parentVC: UIViewController) {
         self.response = response
         self.chartInfo = chartInfo

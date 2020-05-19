@@ -53,8 +53,15 @@ class BotResponseMembersCell: UITableViewCell, CellConfigurable {
     func setup(viewModel: RowViewModel) {
         if let vm = viewModel as? BotResponseMembersViewModel {
             self.viewModel = vm
-            question.text = vm.response
-            question.textColor = .white
+            //question.text = vm.response
+//            if let dateString  = vm.response.slice(from: "(", to: ")") {
+//                let attribute = AttributedText(baseFont: UIFont(name: "TrebuchetMS", size: 20)!, baseColor: .white, attributedFont: UIFont(name: "TrebuchetMS", size: 17)!, attributedColor: .white, attributedText: dateString)
+//                question.attributedText = vm.response.attributedStyle(for: attribute)
+//            } else {
+//                question.text = vm.response
+//            }
+            question.attributedText = vm.formatedResponse
+            //question.textColor = .white
             question.textAlignment = .left
             bubbleView.backgroundColor = .appDarkBlue
             performUpdateConstarints()

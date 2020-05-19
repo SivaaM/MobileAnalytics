@@ -138,13 +138,13 @@
 		431A4D30242C52AD002014C2 /* MemberInfoApp */ = {
 			isa = PBXGroup;
 			children = (
-				43984896246CC61300950FB7 /* Views */,
-				4348AEBC245B8FE300395CD3 /* Handler */,
-				4335004F2440ECE30003869C /* Chart */,
 				43AED3C9242E8BD5005D3C4A /* Controller */,
 				43AED3C8242E8BC8005D3C4A /* ViewModel */,
-				43AED3C7242E8BBB005D3C4A /* Model */,
+				43984896246CC61300950FB7 /* Views */,
 				43AED3C6242E8BAF005D3C4A /* Networking */,
+				4348AEBC245B8FE300395CD3 /* Handler */,
+				4335004F2440ECE30003869C /* Chart */,
+				43AED3C7242E8BBB005D3C4A /* Utils */,
 				431A4D31242C52AD002014C2 /* AppDelegate.swift */,
 				431A4D33242C52AD002014C2 /* SceneDelegate.swift */,
 				4396F1A5243E998900D0C03B /* mockresponse.plist */,
@@ -215,13 +215,13 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		43AED3C7242E8BBB005D3C4A /* Model */ = {
+		43AED3C7242E8BBB005D3C4A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				439848A1246CD0CE00950FB7 /* Observables.swift */,
 				43AED3CA242E8C14005D3C4A /* Utils.swift */,
 			);
-			path = Model;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		43AED3C8242E8BC8005D3C4A /* ViewModel */ = {
