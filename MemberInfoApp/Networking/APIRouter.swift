@@ -47,7 +47,7 @@ final class APIRouter {
         }
     }
     
-    func getMemberInfoData<T>(for dialogueResponse: T, completion: @escaping ((Result<MemberInfoResponse>) -> Void)) {
+    func getMemberInfoData<T>(for dialogueResponse: T, completion: @escaping ((Result<FinalResponse>) -> Void)) {
         let urlString = "https://dialogflow.googleapis.com/v2/projects/askthiprototype-niiehd/agent/sessions/3ad89ca5-7e42-41c6-4c82-d991e0ee1da3:detectIntent"
         var resource: Resource?
         if let dialogueRes = dialogueResponse as? DialogueMockResponse {
@@ -62,26 +62,11 @@ final class APIRouter {
             apiClient.load(rsorc) { (result) in
                 switch result {
                 case .success(let data):
-                    
-                    do {
-                        let items = try JSONDecoder().decode(MemberInfoResponse.self, from: data)
-                        completion(.success(items))
-                    } catch {
-                        if let dialogueRes = dialogueResponse as? DialogueMockResponse {
-                            //completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
-                            let response: MemberInfoResponse = FileLoader.load(dialogueRes.intentType + ".json")
-                            completion(.success(response))
-                        } else {
-                            completion(.failure(error))
-                        }                    }
-                case .failure(let error):
-                    if let dialogueRes = dialogueResponse as? DialogueMockResponse {
-                        //completion(.success(MemberInfoResponse(responseImage: dialogueRes.responseImage)))
-                        let response: MemberInfoResponse = FileLoader.load(dialogueRes.intentType + ".json")
-                        completion(.success(response))
-                    } else {
-                        completion(.failure(error))
-                    }
+                    let resHandler = MemberInfoResHandler(data: data, dialogueRes: dialogueResponse)
+                    completion(resHandler.result!)
+                case .failure:
+                    let resHandler = MemberInfoResHandler(data: nil, dialogueRes: dialogueResponse)
+                    completion(resHandler.result!)
                 }
         }
     }

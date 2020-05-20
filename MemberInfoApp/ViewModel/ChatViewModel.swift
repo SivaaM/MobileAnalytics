@@ -51,10 +51,10 @@ class ChatViewModel {
         }
     }
     
-    func injectBotResponse(dialogueRes: DialogueMockResponse,mbrInfoRes: MemberInfoResponse?, parentVC: UIViewController) {
+    func injectBotResponse(dialogueRes: DialogueMockResponse, finalResponse: FinalResponse?, parentVC: UIViewController) {
         
-        if let mbrInfoRes = mbrInfoRes {
-            let vm =  buildBotModel(dialogueRes: dialogueRes, mbrInfoRes: mbrInfoRes, on: parentVC)
+        if let finalResponse = finalResponse, 
+            let vm =  buildBotModel(dialogueRes: dialogueRes, finalResponse: finalResponse, on: parentVC) {
             DispatchQueue.global().async {
                 sleep(1) 
                 DispatchQueue.main.async {
@@ -64,20 +64,21 @@ class ChatViewModel {
         }
     }
     
-    private func buildBotModel(dialogueRes: DialogueMockResponse, mbrInfoRes: MemberInfoResponse, on parentVC: UIViewController) -> RowViewModel {
-        if mbrInfoRes.data.count == 1 {
-            let members = mbrInfoRes.data.map { (dataSec) -> String in
+    private func buildBotModel(dialogueRes: DialogueMockResponse, finalResponse: FinalResponse, on parentVC: UIViewController) -> RowViewModel? {
+        if let mbrInfoRes = finalResponse.memberResponse {
+            let members = mbrInfoRes.data.map { (dataSec) -> Int in
                 dataSec.c1
                 }.first
-            let membersCount = Int(members ?? "0")!
+            let membersCount = Int(members ?? 0)
             return BotResponseMembersViewModel(response: dialogueRes.speech, title: "Total Members", totalMbrs: membersCount)
 
-        } else {
-            let members = mbrInfoRes.data.map { (dataSec) -> Int in
-                (Int(dataSec.c2!) ?? 0)
-                }
+        } else if let chartInfoRes = finalResponse.chartResponse {
+            let members = chartInfoRes.data.map { (dataSec) -> Int in
+                (Int(dataSec.c2) ?? 0)
+            }
             return BotResponseChartViewModel(response: dialogueRes.speech, chartInfo: members, parentVC: parentVC)
         }
+        return nil
     }
     
     private func buildUserQuestionModel(question: String) -> RowViewModel {

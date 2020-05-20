@@ -101,17 +101,304 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4FA81DF4-C182-4463-836C-C0399F2BF6BD"
+            uuid = "067E2A7D-7FFC-4459-804F-05FF4E4F1A87"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemberInfoApp/ViewModel/RowViewModel.swift"
+            filePath = "MemberInfoApp/Networking/APIRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getMemberInfoData(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "067E2A7D-7FFC-4459-804F-05FF4E4F1A87 - 40597b5b0ab7285c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MemberInfoApp.Result&lt;Foundation.Data&gt;) -&gt; () in MemberInfoApp.APIRouter.getMemberInfoData&lt;A&gt;(for: A, completion: (MemberInfoApp.Result&lt;MemberInfoApp.FinalResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MemberInfoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fahathrajak/Documents/MobileAnalytics/MemberInfoApp/Networking/APIRouter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "401">
+               </Location>
+               <Location
+                  uuid = "067E2A7D-7FFC-4459-804F-05FF4E4F1A87 - 40597b5b0ab7285c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MemberInfoApp.Result&lt;Foundation.Data&gt;) -&gt; () in MemberInfoApp.APIRouter.getMemberInfoData&lt;A&gt;(for: A, completion: (MemberInfoApp.Result&lt;MemberInfoApp.FinalResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "MemberInfoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fahathrajak/Documents/MobileAnalytics/MemberInfoApp/Networking/APIRouter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "422">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "423647E2-EB23-4A4A-A4DB-D2AF704A6613"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/ViewModel/ContainerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "formatedResponse"
-            landmarkType = "24">
+            landmarkName = "handleMockReq(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6B5545F-A980-40B4-BBD5-C6B82CD0BBF9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/FinalInfoOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6FDA107B-E721-4008-BD13-CF614B86B60A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/APIRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "getMemberInfoData(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76068B09-ACC0-4CE1-B7D4-4304B843F76D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/APIRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getMemberInfoData(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C33A22A-1EA2-417D-8F36-F5076B400723"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/APIRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "getMemberInfoData(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F311C005-0A31-4D10-8B5D-4830B312AFA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/APIRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getMemberInfoData(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02FD991C-3747-4B65-AD38-3AFA9F4300C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Handler/MemberInfoResHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "processResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A280167-0123-41B6-A0B7-769EE26629D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/FinalInfoOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7867F8D-218C-4D9F-9250-83D52D507A7E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Networking/FinalInfoOperation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "start()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7867F8D-218C-4D9F-9250-83D52D507A7E - c7e2f0cfa7c5f7a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MemberInfoApp.Result&lt;MemberInfoApp.FinalResponse&gt;) -&gt; () in MemberInfoApp.FinalInfoOperation.start() -&gt; ()"
+                  moduleName = "MemberInfoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fahathrajak/Documents/MobileAnalytics/MemberInfoApp/Networking/FinalInfoOperation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "326">
+               </Location>
+               <Location
+                  uuid = "B7867F8D-218C-4D9F-9250-83D52D507A7E - c7e2f0cfa7c5f7a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MemberInfoApp.Result&lt;MemberInfoApp.FinalResponse&gt;) -&gt; () in MemberInfoApp.FinalInfoOperation.start() -&gt; ()"
+                  moduleName = "MemberInfoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fahathrajak/Documents/MobileAnalytics/MemberInfoApp/Networking/FinalInfoOperation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "B7867F8D-218C-4D9F-9250-83D52D507A7E - c7e2f0cfa7c5f7a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MemberInfoApp.Result&lt;MemberInfoApp.FinalResponse&gt;) -&gt; () in MemberInfoApp.FinalInfoOperation.start() -&gt; ()"
+                  moduleName = "MemberInfoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fahathrajak/Documents/MobileAnalytics/MemberInfoApp/Networking/FinalInfoOperation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "719">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCC3017B-F0B2-4B20-A9DD-3F3C1253CF8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Handler/MemberInfoResHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(data:dialogueRes:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC52F501-E760-42B0-B877-F4DA24567084"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Handler/MemberInfoResHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "processChartResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BECFB84-A542-43C3-87E5-ECC347CC7D13"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Handler/MemberInfoResHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "processMemberResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "933F73C2-AB4C-433C-A503-0E8D198B6B87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemberInfoApp/Handler/MemberInfoResHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "handleFailure()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

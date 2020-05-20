@@ -97,8 +97,8 @@ extension ViewController: SpeechDataDelegate {
 
             containerVM.fetchInfoforQuestion(question) { (response) in
                 switch response {
-                case .respose(let dialogueResponse, let memberInfoResponse):
-                    childVC.chatVM.injectBotResponse(dialogueRes: dialogueResponse, mbrInfoRes: memberInfoResponse, parentVC: childVC)
+                case .respose(let dialogueResponse, let finalResponse):
+                    childVC.chatVM.injectBotResponse(dialogueRes: dialogueResponse, finalResponse: finalResponse, parentVC: childVC)
                 case .confirm:
                     self.navigateToDetail()
                 }

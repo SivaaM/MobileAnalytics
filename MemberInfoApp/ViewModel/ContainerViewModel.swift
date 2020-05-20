@@ -16,28 +16,28 @@ struct ContainerViewModel {
     
     func handleMockReq(for question: String, completion: @escaping VoiceResponseBlock) {
         let dlgOprn = DialogueOperation(question: question, isMock: isMock)
-        let mbrOprn = MemberInfoOperation<DialogueMockResponse>()
+        let finalOprn = FinalInfoOperation<DialogueMockResponse>()
         let connection = BlockOperation {
             if let response = dlgOprn.dialogueMockResponse {
-                mbrOprn.dialogueResponse = response
+                finalOprn.dialogueResponse = response
             }
-            mbrOprn.error = dlgOprn.error
+            finalOprn.error = dlgOprn.error
         }
-        mbrOprn.addDependency(connection)
+        finalOprn.addDependency(connection)
         connection.addDependency(dlgOprn)
         
-        mbrOprn.completionBlock = {
-            if let response = dlgOprn.dialogueMockResponse, let memberInfoResponse = mbrOprn.memberInfoResponse  {
+        finalOprn.completionBlock = {
+            if let response = dlgOprn.dialogueMockResponse, let memberInfoResponse = finalOprn.finalResponse  {
                 completion(.respose(response, memberInfoResponse))
             }
         }
         let queue = OperationQueue()
-        queue.addOperations([dlgOprn, mbrOprn, connection], waitUntilFinished: false)
+        queue.addOperations([dlgOprn, finalOprn, connection], waitUntilFinished: false)
     }
     
     func handleReq(for question: String, completion: @escaping VoiceResponseBlock) {
         let dialogueOperation = DialogueOperation(question: question, isMock: isMock)
-        let mbrOprn = MemberInfoOperation<DialogueResponse>()
+        let finalOprn = FinalInfoOperation<DialogueResponse>()
 
     }
     

@@ -150,14 +150,28 @@ struct DialogueResponse: Codable {
 
 }
 
+struct FinalResponse {
+    var memberResponse: MemberInfoResponse? = nil
+    var chartResponse: ChartInfoResponse? = nil
+}
+
 struct MemberInfoResponse: Codable {
-    let data: [DataSec]
+    let data: [DataSecMember]
     let columns: [ColumnsData]
 }
 
-struct DataSec: Codable {
+struct DataSecMember: Codable {
+    let c1: Int
+}
+
+struct ChartInfoResponse: Codable {
+    let data: [DataSecChart]
+    let columns: [ColumnsData]
+}
+
+struct DataSecChart: Codable {
     let c1: String
-    let c2: String?
+    let c2: String
 }
 
 struct ColumnsData: Codable {
@@ -210,7 +224,7 @@ struct FileLoader {
     }
 }
 
-typealias VoiceResponseBlock = ((VoiceResponse<DialogueMockResponse, MemberInfoResponse>) -> ())
+typealias VoiceResponseBlock = ((VoiceResponse<DialogueMockResponse, FinalResponse>) -> ())
 
 extension UIView {
     /// Generating constraints to superview's edge
