@@ -9,6 +9,7 @@
 import Foundation
 
 struct MemberInfoResHandler<T> {
+    private let handleMock: Bool = false
     private(set) var result: Result<FinalResponse>?
     private let dialogueResponse: T
     private let data: Data?
@@ -45,25 +46,35 @@ struct MemberInfoResHandler<T> {
     }
 
     private func processMemberResponse() throws -> Result<FinalResponse> {
-        guard let data = data else {  return handleFailure() }
+        guard let data = data else {
+            if handleMock {
+                return handleFailure()
+            }
+            throw ParseError.errorData
+        }
         do {
             let response = try JSONDecoder().decode(MemberInfoResponse.self, from: data)
             let finalRes = FinalResponse(memberResponse: response)
             return .success(finalRes)
         } catch {
-            return handleFailure()
+            throw error
         }
     }
     
     private func processChartResponse() throws -> Result<FinalResponse> {
-        guard let data = data else {  return handleFailure() }
+        guard let data = data else {
+            if handleMock {
+                return handleFailure()
+            }
+            throw ParseError.errorData
+        }
 
         do {
             let response = try JSONDecoder().decode(ChartInfoResponse.self, from: data)
             let finalRes = FinalResponse(chartResponse: response)
             return .success(finalRes)
         } catch {
-            return handleFailure()
+            throw error
         }
     }
 
